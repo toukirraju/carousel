@@ -1,0 +1,136 @@
+/* Carousel.css */
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden; /* Hide overflow for smooth transition */
+  position: relative; /* Needed for indicator positioning */
+}
+
+.carousel-button {
+  z-index: 666;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.8;
+  background: #676767;
+}
+
+.carousel-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.prev_button {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+}
+.next_button {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+}
+
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  width: 100%;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Spring-like easing function */
+  transform-origin: center;
+}
+
+.carousel-item {
+  flex: 0 0 calc(25% - 20px); /* Display 4 slides at a time, adjust as needed for large screens */
+  margin: 10px;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Spring-like easing function */
+  opacity: 1;
+  cursor: pointer;
+}
+
+.card {
+  background: rgb(240, 240, 240);
+  min-height: 450px;
+  border-radius: 10px;
+}
+
+.card_image {
+  max-width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.card_container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card_tags span {
+  background: #bebebe;
+  padding: 8px 15px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.card_footer {
+  padding: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.card_footer button {
+  width: 120px;
+  height: 30px;
+  background: rgb(57, 128, 57);
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+/* Adjust styles for medium screens (2 slides) */
+@media (max-width: 991px) {
+  .carousel-item {
+    flex: 0 0 calc(33.3333% - 20px); /* Display 6 slides at a time on medium screens */
+  }
+}
+
+/* Adjust styles for small screens (1 slide) */
+@media (max-width: 767px) {
+  .carousel-item {
+    flex: 0 0 calc(50% - 20px); /* Display 2 slides at a time on small screens */
+  }
+}
+
+/* Indicator styles */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: #007bff;
+}
